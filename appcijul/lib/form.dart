@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:appcijul/main.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -24,6 +25,30 @@ class _MyFormPageState extends State<MyFormPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Form'),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            ListTile(
+              title: const Text('Counter'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Form'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+          ],
+        ),
       ),
       body: Form(
         key: _formKey,
@@ -194,7 +219,7 @@ class _MyFormPageState extends State<MyFormPage> {
                                   Center(child: const Text('Informasi Data')),
                                   SizedBox(height: 20),
                                   Center(
-                                    child: Text('Judul: ' + _namaLengkap),
+                                    child: Text('Nama Lengkap: ' + _namaLengkap),
                                   ),
                                   TextButton(
                                     onPressed: () {
